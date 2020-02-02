@@ -1,5 +1,7 @@
 {
   "name": "cross-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

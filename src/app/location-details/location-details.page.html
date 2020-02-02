@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons  slot="end">
+      <ion-button  (click)="onTakePicture()">
+        <ion-icon name="camera" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    
+    <ion-title  >location details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item >
+     
+     <ion-label>Title: <strong>{{place.title}}</strong></ion-label>
+    </ion-item>
+    <ion-item >
+     
+      <ion-label>City: <strong>{{place.city}}</strong></ion-label>
+     </ion-item>
+     <ion-item >
+     
+      <ion-label>Country: <strong>{{place.country}}</strong></ion-label>
+     </ion-item>
+  </ion-list>
+  <ion-card>
+    <ion-card-content>
+      <agm-map 
+  [latitude]="place.coordinates.latitude"
+  [longitude]="place.coordinates.longitude">
+  <agm-marker 
+
+      [latitude]="place.coordinates.latitude"
+      [longitude]="place.coordinates.longitude"
+      >
+
+    
+  </agm-marker>
+  
+  
+</agm-map>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngFor="let im of place.photo">
+  <ion-card-content >
+<ion-img [src]="im"></ion-img>
+  </ion-card-content>
+  </ion-card>
+</ion-content>
